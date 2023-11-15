@@ -1,0 +1,180 @@
+@import './reset.css';
+@import './loader.css';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
+
+/* 
+font-family: 'Oswald', sans-serif;
+ */
+
+* {
+   /* border: 1px solid gray; */
+} 
+ 
+ body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+
+    background-image: url('./../img/bg.png');
+    background-attachment: fixed; /* чтобы не скролился */
+    background-repeat: no-repeat; /* чтобы не повторялся */
+    background-position: 0 ;
+   }
+
+.none {
+   display: none !important;
+}
+
+.container-left {
+   padding: 25px 15px 100px;
+   width: 930px;
+   min-height: 100vh; /* высота блока на всю высоту страницы */
+   border-right: 1px solid #162344;
+}
+
+/* Правый контейнер зафиксирован. При скроле каталога 
+   описание остается на месте */
+.container-right {
+   position: fixed;
+   left: 930px;
+   top: 0;
+   height: 100vh;
+   padding: 25px;
+
+   /* если будет много контента, добави верикальный скрол */
+   overflow-y: auto;
+   width: 800px;
+
+   background-color: rgba(5, 56, 185, 0.2);
+   border-right: 1px solid #162344;
+}
+
+.title-1 {
+   margin-bottom: 30px;
+   font-size: 28px;
+   font-weight: 700;
+   text-transform: uppercase;
+   text-align: center;
+
+   margin-bottom: 30px;
+}
+
+.films {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+
+   margin-bottom: 30px;
+}
+
+.card {
+   overflow: hidden;
+   padding-bottom: 15px;
+   width: 200px;
+   border-radius: 6px;
+   background-color: rgb(22, 22, 22);
+   text-align: center;
+   cursor: pointer;
+   /* Можно поставить 'all', но, чтобы не тормозило, лучше перечислить
+   свойства, для которых изменяем */
+   transition: transform 0.2s ease-in, background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+ }
+
+.card:hover {
+   transform:  scale(1.025);
+   background-color: rgb(35, 35, 35);
+   box-shadow: 0 10px 20px rgba(0, 65, 152, 0.451);
+
+}
+
+.card__img {
+   margin-bottom: 15px;
+   width: 200px;
+   height: 300px;
+   /* При заданных фиксированных w/h, чтобы любая картинка
+   стала в размер */
+   object-fit: cover;
+   border-radius: 6px;
+}
+
+.card__title {
+   padding: 0 5px;
+   margin-bottom: 5px;
+   font-weight: 300;
+   font-size: 18px;
+}
+
+.card__year {
+   margin-bottom: 5px;
+   color: rgb(7, 150, 252);
+   font-size: 14px;
+   font-weight: 300;
+
+}
+
+.card__rate {
+   font-size: 14px;
+   color: rgb(240, 246, 75);
+}
+
+.show-more {
+   display: block;
+   margin: 0 auto;
+   padding: 10px 30px;
+
+   border-radius: 6px;
+   background-color: rgb(16, 85, 205);
+   color: #fff;
+
+   transition: opacity 0.2s ease-in;
+   
+}
+
+.show-more:hover {
+   opacity: 0.8;
+}
+
+.loader-wraper {
+   padding: 100px 0;
+   text-align: center;
+}
+
+
+/* ================  Films desc  ================ */
+
+.btn-close {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   /* чтобы область клика была чуть больше 'X' */
+   padding: 10px;
+}
+
+.film {
+   display: grid;
+   grid-template-areas: 'title title' 'photo desc';
+   gap: 30px;
+}
+
+.film__title {
+   grid-area: title;
+   font-size: 28px;
+   font-weight: 300;
+}
+
+.film__img {
+   grid-area: photo;
+}
+
+.film__desc {
+   grid-area: desc;
+}
+
+.film__details {
+   color: aqua;
+}
+
+.film-text {
+   margin-top: 30px;
+   font-weight: 300;
+}
